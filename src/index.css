@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply font-body text-gray-800 bg-white; }
+  * { box-sizing: border-box; }
+  /* Classic letter-spacing for serif headings */
+  h1, h2, h3, h4 { letter-spacing: -0.01em; }
+}
+
+@layer components {
+  /* ---- CMT Button styles ---- */
+  .btn-cmt {
+    @apply bg-cmt-gold text-white font-heading font-semibold px-6 py-2.5 rounded
+           hover:bg-cmt-goldLight transition-all duration-200 shadow hover:shadow-md
+           active:scale-95 text-sm tracking-wide uppercase;
+  }
+  .btn-cmt-outline {
+    @apply border-2 border-cmt-gold text-cmt-gold font-heading font-semibold px-6 py-2.5 rounded
+           hover:bg-cmt-gold hover:text-white transition-all duration-200 text-sm tracking-wide uppercase;
+  }
+  .btn-navy {
+    @apply bg-cmt-navy text-white font-heading font-semibold px-6 py-2.5 rounded
+           hover:bg-cmt-navyMid transition-all duration-200 shadow active:scale-95 text-sm;
+  }
+
+  /* ---- Section headings ---- */
+  .sec-heading {
+    @apply font-heading font-bold text-cmt-navy text-2xl md:text-3xl tracking-tight;
+  }
+  .sec-label {
+    @apply font-body font-semibold text-cmt-gold text-[11px] uppercase tracking-[0.3em];
+  }
+
+  /* ---- Product card ---- */
+  .pcard {
+    @apply bg-white border border-gray-100 overflow-hidden
+           transition-all duration-300 flex flex-col
+           hover:shadow-lg hover:-translate-y-0.5 hover:border-cmt-gold/30;
+  }
+
+  /* ---- Category tab ---- */
+  .cat-tab {
+    @apply px-4 py-2 rounded font-heading font-medium text-sm cursor-pointer
+           transition-all duration-200 border;
+  }
+  .cat-tab-active {
+    @apply bg-cmt-navy text-white border-cmt-navy;
+  }
+  .cat-tab-inactive {
+    @apply bg-white text-cmt-navy border-cmt-navy/30 hover:bg-cmt-navy hover:text-white hover:border-cmt-navy;
+  }
+}
+
+/* Page fade-in */
+.page-fade {
+  animation: pageFadeIn 0.35s ease forwards;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Badge pulse */
+@keyframes bdgPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.25); }
+}
+.bdg-pulse { animation: bdgPulse 0.35s ease; }
+
+/* Scrollbar thin */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #c8a45e; border-radius: 3px; }
