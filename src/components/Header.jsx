@@ -19,9 +19,9 @@ export default function Header() {
   const { totalCount } = useCart()
   const { settings } = useAdmin()
   const phone    = settings?.phone    || '+91 88822 22900'
-  const email    = settings?.email    || 'info@callmytailor.com'
+  const email    = settings?.email    || 'info@vivahvastra.com'
   const whatsapp = settings?.whatsapp || '918882222900'
-  const cities   = settings?.cities   || 'Free Home Visit · Delhi NCR · Mumbai · Bangalore'
+  const cities   = settings?.cities   || 'Free Home Visit · Delhi NCR '
   const prevCount = useRef(totalCount)
   const navigate  = useNavigate()
   const location  = useLocation()
@@ -82,7 +82,7 @@ export default function Header() {
             <div className="flex flex-col leading-none">
               <span className="font-heading font-bold text-white tracking-tight"
                     style={{ fontSize: '1.35rem', letterSpacing: '0.02em' }}>
-                Call My <span className="text-cmt-gold italic">Tailor</span>
+                Vivah <span className="text-cmt-gold italic">Vastra</span>
               </span>
               <span className="text-cmt-gold/60 text-[9px] tracking-[0.35em] uppercase font-body font-medium mt-0.5">
                 Premium Home Tailoring
