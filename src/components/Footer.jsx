@@ -33,7 +33,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-4">
               <p className="font-heading font-extrabold text-2xl text-white tracking-tight">
-                CALL MY <span className="text-cmt-gold">TAILOR</span>
+                Vivah <span className="text-cmt-gold">Vastra</span>
               </p>
               <p className="text-cmt-gold/70 text-xs tracking-[0.2em] uppercase mt-0.5">
                 Book Home Visit
@@ -60,7 +60,7 @@ export default function Footer() {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
                 <a href="mailto:info@callmytailor.com" className="text-gray-400 hover:text-cmt-gold transition-colors">
-                  info@callmytailor.com
+                  info@vivahvastra.com
                 </a>
               </div>
               <div className="flex items-start gap-3">
