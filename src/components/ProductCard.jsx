@@ -28,7 +28,7 @@ export default function ProductCard({ product }) {
   return (
     <div className="pcard group">
       {/* Image — full garment visible, white bg */}
-      <div className="relative bg-[#f7f5f2] border-b border-gray-100 overflow-hidden h-[320px]">
+      <div className="relative bg-[#f7f5f2] border-b border-gray-100 overflow-hidden h-[160px] sm:h-[220px] md:h-[260px] lg:h-[320px]">
         <img
           src={product.image}
           alt={product.title}
@@ -37,27 +37,27 @@ export default function ProductCard({ product }) {
           loading="lazy"
         />
         {product.badge && (
-          <span className={`absolute top-2 left-2 text-white text-[9px] font-body font-semibold
-            px-2 py-0.5 tracking-widest uppercase ${badgeColors[product.badge] || 'bg-cmt-gold'}`}>
+          <span className={`absolute top-1.5 left-1.5 text-white text-[8px] sm:text-[9px] font-body font-semibold
+            px-1.5 py-0.5 tracking-widest uppercase ${badgeColors[product.badge] || 'bg-cmt-gold'}`}>
             {product.badge}
           </span>
         )}
       </div>
 
       {/* Content */}
-      <div className="p-3 flex flex-col flex-1">
-        <h3 className="font-heading font-bold text-cmt-navy text-lg leading-tight mb-2">
+      <div className="p-2 sm:p-3 flex flex-col flex-1">
+        <h3 className="font-heading font-bold text-cmt-navy text-xs sm:text-sm lg:text-base leading-tight mb-1.5">
           {product.title}
         </h3>
 
-        <div className="space-y-[2px] mb-3 flex-1">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-400">Stitching Price :-</span>
+        <div className="space-y-[2px] mb-2 sm:mb-3 flex-1">
+          <div className="flex items-center justify-between text-[10px] sm:text-xs lg:text-sm">
+            <span className="text-gray-400">Stitching :-</span>
             <span className="font-body font-normal text-gray-400">₹{product.stitching.toLocaleString()}/-</span>
           </div>
           {product.fabricFrom > 0 && (
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-400">Fabric Starts at :-</span>
+            <div className="flex items-center justify-between text-[10px] sm:text-xs lg:text-sm">
+              <span className="text-gray-400">Fabric :-</span>
               <span className="font-body font-normal text-gray-400">₹{product.fabricFrom.toLocaleString()}/-</span>
             </div>
           )}
@@ -65,7 +65,7 @@ export default function ProductCard({ product }) {
 
         <button
           onClick={handleSelect}
-          className={`w-full py-2 font-body font-semibold text-xs uppercase tracking-widest
+          className={`w-full py-1.5 sm:py-2 font-body font-semibold text-[9px] sm:text-[10px] uppercase tracking-widest
             transition-all duration-200 active:scale-95
             ${
               inCart

@@ -73,7 +73,7 @@ export default function CollectionPage({ title, subtitle, products, heroImage, h
             </div>
 
             {/* Product grid — shrinks when side panel is open */}
-            <div className={`grid gap-3 ${
+            <div className={`grid gap-2 sm:gap-3 ${
               hasItems
                 ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6'
                 : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'
