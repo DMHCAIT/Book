@@ -35,14 +35,14 @@ export default function AdminLogin() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/30 mb-4">
-            <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-red-500/10 border border-red-500/30 mb-4">
+            <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
                 d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
           <h1 className="font-heading font-extrabold text-2xl text-white">
-            CALL MY <span className="text-yellow-400">TAILOR</span>
+            CALL MY <span className="text-red-500">TAILOR</span>
           </h1>
           <p className="text-white/50 text-sm mt-1 font-heading">Admin Panel</p>
         </div>
@@ -70,7 +70,7 @@ export default function AdminLogin() {
                 onChange={e => setForm(f => ({ ...f, username: e.target.value }))}
                 placeholder="admin"
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm
-                           focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent
+                           focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent
                            placeholder-gray-300"
                 required
               />
@@ -85,7 +85,7 @@ export default function AdminLogin() {
                   onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                   placeholder="••••••••"
                   className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm pr-10
-                             focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent
+                             focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent
                              placeholder-gray-300"
                   required
                 />

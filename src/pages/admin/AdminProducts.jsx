@@ -87,7 +87,7 @@ function ProductModal({ product, category, onSave, onClose }) {
               value={form.title}
               onChange={e => set('title', e.target.value)}
               placeholder="e.g. Blazer"
-              className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400
+              className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500
                 ${errors.title ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
             />
             {errors.title && <p className="text-red-500 text-xs mt-1">{errors.title}</p>}
@@ -99,7 +99,7 @@ function ProductModal({ product, category, onSave, onClose }) {
             <select
               value={form.subcategory}
               onChange={e => set('subcategory', e.target.value)}
-              className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400
+              className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500
                 ${errors.subcategory ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
             >
               <option value="">Select subcategory</option>
@@ -117,7 +117,7 @@ function ProductModal({ product, category, onSave, onClose }) {
                 min="0"
                 value={form.stitching}
                 onChange={e => set('stitching', e.target.value)}
-                className={`w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500
                   ${errors.stitching ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
               />
               {errors.stitching && <p className="text-red-500 text-xs mt-1">{errors.stitching}</p>}
@@ -129,7 +129,7 @@ function ProductModal({ product, category, onSave, onClose }) {
                 min="0"
                 value={form.fabricFrom}
                 onChange={e => set('fabricFrom', e.target.value)}
-                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
               />
             </div>
             <div>
@@ -139,7 +139,7 @@ function ProductModal({ product, category, onSave, onClose }) {
                 min="0"
                 value={form.price}
                 onChange={e => set('price', e.target.value)}
-                className={`w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500
                   ${errors.price ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
               />
               {errors.price && <p className="text-red-500 text-xs mt-1">{errors.price}</p>}
@@ -154,7 +154,7 @@ function ProductModal({ product, category, onSave, onClose }) {
               value={form.badge || ''}
               onChange={e => set('badge', e.target.value)}
               placeholder="e.g. Bestseller, Premium, New"
-              className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
             />
           </div>
 
@@ -166,7 +166,7 @@ function ProductModal({ product, category, onSave, onClose }) {
               value={form.image || ''}
               onChange={e => set('image', e.target.value)}
               placeholder="https://callmytailor.com/custom/..."
-              className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
             />
           </div>
 
@@ -178,7 +178,7 @@ function ProductModal({ product, category, onSave, onClose }) {
               value={form.fallback || ''}
               onChange={e => set('fallback', e.target.value)}
               placeholder="https://images.unsplash.com/..."
-              className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
             />
           </div>
         </div>
@@ -311,7 +311,7 @@ export default function AdminProducts() {
               onChange={e => setSearch(e.target.value)}
               placeholder="Search products..."
               className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm
-                         focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                         focus:outline-none focus:ring-2 focus:ring-red-500"
             />
           </div>
         </div>
@@ -354,7 +354,7 @@ export default function AdminProducts() {
                   <td className="px-5 py-3 text-gray-800 font-medium">₹{p.price?.toLocaleString()}</td>
                   <td className="px-5 py-3">
                     {p.badge ? (
-                      <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-0.5 rounded-full">
+                      <span className="bg-red-100 text-red-800 text-xs font-semibold px-2 py-0.5 rounded-full">
                         {p.badge}
                       </span>
                     ) : <span className="text-gray-300">—</span>}

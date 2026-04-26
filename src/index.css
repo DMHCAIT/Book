@@ -73,4 +73,4 @@
 /* Scrollbar thin */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: #c8a45e; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #cc2222; border-radius: 3px; }

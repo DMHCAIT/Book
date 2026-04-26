@@ -4,7 +4,7 @@ import { useAdmin } from '../../context/AdminContext'
 const STATUS_OPTIONS = ['Pending', 'Confirmed', 'Completed', 'Cancelled']
 
 const STATUS_STYLES = {
-  Pending:   { badge: 'bg-yellow-100 text-yellow-800 border-yellow-200', dot: 'bg-yellow-500' },
+  Pending:   { badge: 'bg-red-100 text-red-800 border-red-200', dot: 'bg-red-500' },
   Confirmed: { badge: 'bg-blue-100 text-blue-800 border-blue-200',       dot: 'bg-blue-500'   },
   Completed: { badge: 'bg-green-100 text-green-800 border-green-200',    dot: 'bg-green-500'  },
   Cancelled: { badge: 'bg-red-100 text-red-800 border-red-200',          dot: 'bg-red-500'    },
@@ -141,7 +141,7 @@ export default function AdminBookings() {
               onChange={e => setSearch(e.target.value)}
               placeholder="Search by name, phone, city..."
               className="pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm
-                         focus:outline-none focus:ring-2 focus:ring-yellow-400 w-56"
+                         focus:outline-none focus:ring-2 focus:ring-red-500 w-56"
             />
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function AdminBookings() {
                             value={b.status}
                             onChange={e => handleStatusChange(b.id, e.target.value)}
                             className={`text-xs font-semibold px-2.5 py-1.5 rounded-lg border cursor-pointer
-                              focus:outline-none focus:ring-2 focus:ring-yellow-400 ${st.badge}`}
+                              focus:outline-none focus:ring-2 focus:ring-red-500 ${st.badge}`}
                           >
                             {STATUS_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
                           </select>

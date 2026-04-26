@@ -38,18 +38,18 @@ export default function Header() {
   return (
     <>
       {/* ── Top info bar ── */}
-      <div className="bg-white text-gray-700 text-[11px] border-b border-gray-200">
+      <div className="bg-cmt-gold text-white text-[11px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-2 gap-4">
           <div className="flex items-center gap-5 flex-wrap">
             <a href={`tel:${phone.replace(/\s/g, '')}`}
-               className="flex items-center gap-1.5 hover:text-cmt-gold transition-colors">
+               className="flex items-center gap-1.5 hover:text-white/80 transition-colors">
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
               </svg>
               {phone}
             </a>
             <a href={`mailto:${email}`}
-               className="flex items-center gap-1.5 hover:text-cmt-gold transition-colors hidden sm:flex">
+               className="flex items-center gap-1.5 hover:text-white/80 transition-colors hidden sm:flex">
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -58,7 +58,7 @@ export default function Header() {
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <span className="hidden sm:block text-white/60">{cities}</span>
+            <span className="hidden sm:block text-white/80">{cities}</span>
             {/* WhatsApp */}
             <a href={`https://api.whatsapp.com/send?phone=${whatsapp}`}
                target="_blank" rel="noopener noreferrer"

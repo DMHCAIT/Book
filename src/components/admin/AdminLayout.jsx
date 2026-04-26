@@ -72,12 +72,12 @@ export default function AdminLayout() {
           {sidebarOpen ? (
             <div className="flex flex-col leading-tight overflow-hidden">
               <span className="font-heading font-extrabold text-white text-base tracking-tight whitespace-nowrap">
-                CALL MY <span className="text-yellow-400">TAILOR</span>
+                CALL MY <span className="text-red-500">TAILOR</span>
               </span>
-              <span className="text-yellow-400/70 text-[9px] tracking-widest uppercase">Admin Panel</span>
+              <span className="text-red-400/70 text-[9px] tracking-widest uppercase">Admin Panel</span>
             </div>
           ) : (
-            <span className="font-heading font-extrabold text-yellow-400 text-lg mx-auto">A</span>
+            <span className="font-heading font-extrabold text-red-500 text-lg mx-auto">A</span>
           )}
         </div>
 
@@ -91,7 +91,7 @@ export default function AdminLayout() {
                 `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-heading font-medium
                 transition-colors group relative
                 ${isActive
-                  ? 'bg-yellow-400/20 text-yellow-400'
+                  ? 'bg-red-500/20 text-red-500'
                   : 'text-white/70 hover:bg-white/10 hover:text-white'
                 }`
               }
@@ -164,7 +164,7 @@ export default function AdminLayout() {
             </a>
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-[#1a2744] rounded-full flex items-center justify-center
-                              font-heading font-bold text-yellow-400 text-sm">
+                              font-heading font-bold text-red-500 text-sm">
                 A
               </div>
               <span className="text-sm font-medium text-gray-700 hidden sm:block">Admin</span>

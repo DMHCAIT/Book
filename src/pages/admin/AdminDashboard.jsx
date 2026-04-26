@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAdmin } from '../../context/AdminContext'
 
 const STATUS_COLORS = {
-  Pending:   'bg-yellow-100 text-yellow-800',
+  Pending:   'bg-red-100 text-red-800',
   Confirmed: 'bg-blue-100 text-blue-800',
   Completed: 'bg-green-100 text-green-800',
   Cancelled: 'bg-red-100 text-red-800',
@@ -36,7 +36,7 @@ export default function AdminDashboard() {
       label: 'Pending Bookings',
       value: pending,
       sub: 'Needs attention',
-      color: 'bg-yellow-50 text-yellow-600',
+      color: 'bg-red-50 text-red-600',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}

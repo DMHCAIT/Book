@@ -62,14 +62,14 @@ function PasswordSection({ changePassword }) {
             <label className="block text-sm font-semibold text-gray-700 mb-1.5">New Username</label>
             <input type="text" name="username" value={form.username} onChange={handleChange}
               placeholder="admin"
-              className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+              className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500" />
           </div>
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-1.5">Current Password</label>
             <div className="relative">
               <input type={show.current ? 'text' : 'password'} name="current" value={form.current} onChange={handleChange}
                 placeholder="••••••••"
-                className="w-full border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+                className="w-full border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-red-500" />
               <Eye field="current" />
             </div>
           </div>
@@ -78,7 +78,7 @@ function PasswordSection({ changePassword }) {
             <div className="relative">
               <input type={show.newPass ? 'text' : 'password'} name="newPass" value={form.newPass} onChange={handleChange}
                 placeholder="Min. 6 characters"
-                className="w-full border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+                className="w-full border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-red-500" />
               <Eye field="newPass" />
             </div>
           </div>
@@ -87,7 +87,7 @@ function PasswordSection({ changePassword }) {
             <div className="relative">
               <input type={show.confirm ? 'text' : 'password'} name="confirm" value={form.confirm} onChange={handleChange}
                 placeholder="Re-enter new password"
-                className="w-full border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+                className="w-full border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-red-500" />
               <Eye field="confirm" />
             </div>
           </div>
@@ -126,7 +126,7 @@ function Field({ label, name, value, onChange, type = 'text', placeholder, hint 
         onChange={onChange}
         placeholder={placeholder}
         className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm
-                   focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                   focus:outline-none focus:ring-2 focus:ring-red-500"
       />
       {hint && <p className="text-xs text-gray-400 mt-1">{hint}</p>}
     </div>
@@ -227,7 +227,7 @@ export default function AdminSettings() {
                 onChange={handleChange}
                 rows={2}
                 className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm
-                           focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none"
+                           focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
               />
             </div>
           </div>
@@ -326,7 +326,7 @@ export default function AdminSettings() {
             </div>
             {/* Hero preview */}
             <div className="bg-[#1a2744] px-6 py-8 text-center">
-              <p className="text-yellow-400 font-semibold text-xs uppercase tracking-widest mb-2">{form.heroSubtitle}</p>
+              <p className="text-red-500 font-semibold text-xs uppercase tracking-widest mb-2">{form.heroSubtitle}</p>
               <h2 className="font-heading font-extrabold text-2xl text-white mb-2">{form.heroTitle}</h2>
               <p className="text-white/60 text-xs max-w-sm mx-auto">{form.heroBody}</p>
               <div className="flex justify-center gap-8 mt-6 pt-4 border-t border-white/10">
@@ -337,7 +337,7 @@ export default function AdminSettings() {
                   { v: form.productsCount, l: 'Products' },
                 ].map(s => (
                   <div key={s.l} className="text-center">
-                    <p className="font-heading font-bold text-yellow-400 text-sm">{s.v}</p>
+                    <p className="font-heading font-bold text-red-500 text-sm">{s.v}</p>
                     <p className="text-white/50 text-[10px] uppercase tracking-wide">{s.l}</p>
                   </div>
                 ))}

@@ -71,45 +71,6 @@ export default function CategoryButtons() {
 
   return (
     <>
-      {/* ── How It Works  ── */}
-      <section className="bg-white py-20 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section header */}
-          <div className="text-center mb-14">
-            <p className="sec-label mb-3">Simple Process</p>
-            <h2 className="font-heading font-bold text-cmt-navy text-3xl md:text-4xl tracking-tight">How It Works</h2>
-            <div className="flex items-center justify-center gap-3 mt-4">
-              <span className="block w-12 h-px bg-cmt-gold/40" />
-              <span className="text-cmt-gold text-xs">✦</span>
-              <span className="block w-12 h-px bg-cmt-gold/40" />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 relative">
-            {/* Connecting line behind steps */}
-            <div className="hidden sm:block absolute top-10 left-[16.67%] right-[16.67%] h-px bg-cmt-gold/20" />
-
-            {steps.map((s, i) => (
-              <div key={s.num} className="flex flex-col items-center text-center px-8 pb-10 relative">
-                {/* Step circle */}
-                <div className="relative mb-6">
-                  <div className="w-20 h-20 rounded-full border-2 border-cmt-gold/30 bg-cmt-cream
-                                  flex items-center justify-center text-cmt-gold shadow-sm">
-                    {s.icon}
-                  </div>
-                  <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-cmt-gold
-                                   text-white text-[11px] font-heading font-bold flex items-center justify-center">
-                    {s.num}
-                  </span>
-                </div>
-                <h3 className="font-heading font-bold text-cmt-navy text-sm tracking-widest mb-2 uppercase">{s.title}</h3>
-                <p className="text-gray-400 text-xs leading-relaxed max-w-[160px]">{s.sub}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Select Your Category ── */}
       <section id="select-category" className="py-20 bg-[#faf8f5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,10 +127,63 @@ export default function CategoryButtons() {
         </div>
       </section>
 
+      {/* ── Stats ── */}
+      <section className="bg-cmt-navy py-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+            {[
+              { value: '5,485+',  label: 'Happy Clients' },
+              { value: '15',      label: 'Year Experience' },
+              { value: '250+',    label: 'Tailors & Designers' },
+              { value: '14,580+', label: 'Products Delivered' },
+            ].map(s => (
+              <div key={s.label}>
+                <p className="font-heading font-extrabold text-3xl md:text-4xl text-cmt-gold leading-none">{s.value}</p>
+                <p className="text-white/60 text-xs uppercase tracking-widest mt-2">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── How It Works ── */}
+      <section className="bg-white py-20 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="sec-label mb-3">Simple Process</p>
+            <h2 className="font-heading font-bold text-cmt-navy text-3xl md:text-4xl tracking-tight">How It Works</h2>
+            <div className="flex items-center justify-center gap-3 mt-4">
+              <span className="block w-12 h-px bg-cmt-gold/40" />
+              <span className="text-cmt-gold text-xs">✦</span>
+              <span className="block w-12 h-px bg-cmt-gold/40" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 relative">
+            <div className="hidden sm:block absolute top-10 left-[16.67%] right-[16.67%] h-px bg-cmt-gold/20" />
+            {steps.map(s => (
+              <div key={s.num} className="flex flex-col items-center text-center px-8 pb-10 relative">
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 rounded-full border-2 border-cmt-gold/30 bg-cmt-cream
+                                  flex items-center justify-center text-cmt-gold shadow-sm">
+                    {s.icon}
+                  </div>
+                  <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-cmt-gold
+                                   text-white text-[11px] font-heading font-bold flex items-center justify-center">
+                    {s.num}
+                  </span>
+                </div>
+                <h3 className="font-heading font-bold text-cmt-navy text-sm tracking-widest mb-2 uppercase">{s.title}</h3>
+                <p className="text-gray-400 text-xs leading-relaxed max-w-[160px]">{s.sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Features strip ── */}
       <section className="bg-cmt-navy py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* thin gold rule top */}
           <div className="w-16 h-px bg-cmt-gold mx-auto mb-10 opacity-60" />
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
             {[

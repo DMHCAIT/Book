@@ -10,15 +10,15 @@ export default function Hero() {
   const s = settings || {}
 
   return (
-    <section className="relative w-full h-screen min-h-[640px] flex items-stretch overflow-hidden bg-[#0d1525]">
+    <section className="relative w-full h-screen min-h-[640px] flex items-stretch bg-[#0d1525]" style={{ overflow: 'hidden' }}>
 
       {/* ── Full-bleed background image with rich layered overlay ── */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+        className="absolute inset-0 bg-cover bg-no-repeat bg-right sm:bg-center"
         style={{ backgroundImage: `url('${BG_IMAGE}'), url('${BG_FALLBACK}')` }}
       />
       {/* Deep left vignette so text pops cleanly */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0d1525]/95 via-[#0d1525]/70 to-[#0d1525]/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0d1525]/95 via-[#0d1525]/75 to-[#0d1525]/30 sm:to-[#0d1525]/10" />
       {/* Subtle bottom fade */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0d1525]/60 via-transparent to-transparent" />
 
@@ -61,12 +61,12 @@ export default function Hero() {
           </p>
 
           {/* CTA buttons */}
-          <div className="flex flex-wrap gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-12">
             <button
               onClick={() => document.getElementById('select-category')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group flex items-center gap-2 bg-cmt-gold hover:bg-cmt-goldLight text-white
+              className="group flex items-center justify-center gap-2 bg-cmt-gold hover:bg-cmt-goldLight text-white
                          font-heading font-semibold px-8 py-3.5 transition-all duration-200
-                         uppercase tracking-widest text-sm shadow-lg shadow-cmt-gold/30"
+                         uppercase tracking-widest text-sm shadow-lg shadow-cmt-gold/30 w-full sm:w-auto"
               style={{ clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%)' }}
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,9 +78,9 @@ export default function Hero() {
             <a
               href={`https://api.whatsapp.com/send?phone=${s.whatsapp || '918882222900'}`}
               target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-2 border border-white/30 hover:border-cmt-gold
+              className="flex items-center justify-center gap-2 border border-white/30 hover:border-cmt-gold
                          text-white/80 hover:text-cmt-gold font-heading font-semibold px-7 py-3.5
-                         transition-all duration-200 uppercase tracking-widest text-sm"
+                         transition-all duration-200 uppercase tracking-widest text-sm w-full sm:w-auto"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>

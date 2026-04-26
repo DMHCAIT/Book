@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useCart } from '../context/CartContext'
 
 const badgeColors = {
-  Bestseller: 'bg-amber-500',
+  Bestseller: 'bg-red-600',
   Premium:    'bg-purple-700',
   New:        'bg-green-600',
   Trending:   'bg-blue-600',

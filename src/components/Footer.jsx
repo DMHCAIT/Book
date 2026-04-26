@@ -3,18 +3,6 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <footer className="bg-white text-gray-600 border-t border-gray-200">
-      {/* Top CTA band */}
-      <div className="bg-cmt-gold py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center gap-1">
-          <p className="font-heading font-bold text-cmt-navy text-lg">
-            Made for You, Designed by You
-          </p>
-          <p className="text-cmt-navy/70 text-sm">
-            Get customize your dress in Perfect fitting with quality stitching at your doorstep
-          </p>
-        </div>
-      </div>
-
       {/* Main footer grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -183,25 +171,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Stats bar */}
-      <div className="border-t border-gray-200 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-            {[
-              { value: '5485+', label: 'Happy Clients' },
-              { value: '15', label: 'Year Experience' },
-              { value: '250+', label: 'Tailors & Designers' },
-              { value: '14580+', label: 'Products Delivered' },
-            ].map(s => (
-              <div key={s.label}>
-                <p className="font-heading font-extrabold text-2xl text-cmt-gold">{s.value}</p>
-                <p className="text-gray-400 text-xs uppercase tracking-wide mt-0.5">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Bottom bar */}
       <div className="border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4
@@ -215,6 +184,17 @@ export default function Footer() {
               </span>
             ))}
           </div>
+        </div>
+      </div>
+      {/* Bottom CTA band */}
+      <div className="bg-cmt-gold py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center gap-1">
+          <p className="font-heading font-bold text-cmt-navy text-lg">
+            Made for You, Designed by You
+          </p>
+          <p className="text-cmt-navy/70 text-sm">
+            Get customize your dress in Perfect fitting with quality stitching at your doorstep
+          </p>
         </div>
       </div>
     </footer>
