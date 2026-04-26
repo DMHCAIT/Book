@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <>
       {/* ── Top info bar ── */}
-      <div className="bg-[#0d1525] text-white text-[11px] border-b border-cmt-gold/20">
+      <div className="bg-white text-gray-700 text-[11px] border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-2 gap-4">
           <div className="flex items-center gap-5 flex-wrap">
             <a href={`tel:${phone.replace(/\s/g, '')}`}
@@ -74,20 +74,16 @@ export default function Header() {
       </div>
 
       {/* ── Main nav bar ── */}
-      <header className="bg-[#0d1525] sticky top-0 z-50 border-b border-cmt-gold/20">
+      <header className="bg-white sticky top-0 z-50 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[70px]">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="flex flex-col leading-none">
-              <span className="font-heading font-bold text-white tracking-tight"
-                    style={{ fontSize: '1.35rem', letterSpacing: '0.02em' }}>
-                Vivah <span className="text-cmt-gold italic">Vastra</span>
-              </span>
-              <span className="text-cmt-gold/60 text-[9px] tracking-[0.35em] uppercase font-body font-medium mt-0.5">
-                Premium Home Tailoring
-              </span>
-            </div>
+          <Link to="/" className="flex items-center flex-shrink-0">
+            <img
+              src="/images/logo.png"
+              alt="Call My Tailor"
+              className="h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop nav links */}
@@ -99,7 +95,7 @@ export default function Header() {
                 className={
                   link.to === '/booking'
                     ? 'ml-3 border-2 border-cmt-gold text-cmt-gold hover:bg-cmt-gold hover:text-white font-body font-medium text-[11px] tracking-widest uppercase px-5 py-2 self-center transition-colors duration-150'
-                    : `font-body font-medium text-[12px] tracking-widest uppercase px-5 py-[26px] transition-colors duration-150 border-b-2 ${location.pathname === link.to ? 'text-cmt-gold border-cmt-gold' : 'text-white/70 hover:text-cmt-gold border-transparent hover:border-cmt-gold/60'}`
+                    : `font-body font-medium text-[12px] tracking-widest uppercase px-5 py-[26px] transition-colors duration-150 border-b-2 ${location.pathname === link.to ? 'text-cmt-gold border-cmt-gold' : 'text-cmt-navy/70 hover:text-cmt-gold border-transparent hover:border-cmt-gold/60'}`
                 }
               >
                 {link.label}
@@ -112,12 +108,12 @@ export default function Header() {
             {/* Cart */}
             <button
               onClick={() => setCartOpen(true)}
-              className="relative p-2 text-white hover:text-cmt-gold transition-colors"
+              className="relative p-2 text-cmt-navy hover:text-cmt-gold transition-colors"
               aria-label="Cart"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
               </svg>
               {totalCount > 0 && (
                 <span className={`absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px]
@@ -131,7 +127,7 @@ export default function Header() {
 
             {/* Hamburger */}
             <button
-              className="lg:hidden p-2 text-white hover:text-cmt-gold transition-colors"
+              className="lg:hidden p-2 text-cmt-navy hover:text-cmt-gold transition-colors"
               onClick={() => setMenuOpen(o => !o)}
               aria-label="Toggle menu"
             >
@@ -149,19 +145,19 @@ export default function Header() {
         </div>
 
         {/* Mobile menu */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 bg-[#080f1e] border-t border-cmt-gold/10
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 bg-white border-t border-gray-100
           ${menuOpen ? 'max-h-96' : 'max-h-0'}`}>
-          <nav className="px-4 pb-4 pt-2 flex flex-col border-t border-white/10">
+          <nav className="px-4 pb-4 pt-2 flex flex-col border-t border-gray-100">
             {navLinks.map(link => (
               <Link
                 key={link.to}
                 to={link.to}
                 onClick={() => setMenuOpen(false)}
                 className={`py-3 text-sm font-heading font-medium uppercase tracking-wide
-                  border-b border-white/10 transition-colors
+                  border-b border-gray-100 transition-colors
                   ${location.pathname === link.to
                     ? 'text-cmt-gold'
-                    : 'text-white/80 hover:text-cmt-gold'
+                    : 'text-cmt-navy/80 hover:text-cmt-gold'
                   }`}
               >
                 {link.label}

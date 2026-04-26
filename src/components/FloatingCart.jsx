@@ -36,7 +36,7 @@ export default function FloatingCart() {
               <div className="relative">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
                 <span className={`absolute -top-2 -right-2 bg-cmt-gold text-white text-[10px] 
                                   font-bold rounded-full w-5 h-5 flex items-center justify-center
@@ -60,7 +60,7 @@ export default function FloatingCart() {
               </div>
             </div>
             <div className="flex items-center gap-2 text-cmt-gold font-semibold text-sm">
-              View Cart
+              My Orders
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

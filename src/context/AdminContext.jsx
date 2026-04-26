@@ -7,8 +7,13 @@ import {
 
 const AdminContext = createContext()
 
-// Credentials — in a real app this would be server-side authentication
-const ADMIN_CREDS = { username: 'admin', password: 'admin123' }
+const DEFAULT_CREDS = { username: 'admin', password: 'admin123' }
+function loadCreds() {
+  try {
+    const v = localStorage.getItem('admin_creds')
+    return v ? JSON.parse(v) : DEFAULT_CREDS
+  } catch { return DEFAULT_CREDS }
+}
 
 function load(key, fallback) {
   try {
@@ -25,6 +30,7 @@ function save(key, val) {
 
 const initial = {
   authed: load('admin_authed', false),
+  creds: loadCreds(),
   mensProducts:      load('admin_mens_v2',    defaultMens),
   womensProducts:    load('admin_womens_v2',  defaultWomens),
   alterationServices:load('admin_alt_v2',     defaultAlt),
@@ -92,6 +98,11 @@ function reducer(state, action) {
       save('admin_settings', settings)
       return { ...state, settings }
     }
+    case 'CHANGE_PASSWORD': {
+      const creds = { username: action.username, password: action.password }
+      save('admin_creds', creds)
+      return { ...state, creds }
+    }
     default:
       return state
   }
@@ -101,12 +112,16 @@ export function AdminProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initial)
 
   const login = (user, pass) => {
-    if (user === ADMIN_CREDS.username && pass === ADMIN_CREDS.password) {
+    const creds = loadCreds()
+    if (user === creds.username && pass === creds.password) {
       dispatch({ type: 'LOGIN' })
       return true
     }
     return false
   }
+
+  const changePassword = (username, password) =>
+    dispatch({ type: 'CHANGE_PASSWORD', username, password })
 
   const logout = () => dispatch({ type: 'LOGOUT' })
 
@@ -145,6 +160,7 @@ export function AdminProvider({ children }) {
         deleteBooking,
         clearBookings,
         updateSettings,
+        changePassword,
       }}
     >
       {children}

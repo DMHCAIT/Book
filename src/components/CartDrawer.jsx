@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 
 export default function CartDrawer({ open, onClose }) {
-  const { cart, removeFromCart, updateQty, toggleFabric, totalPrice } = useCart()
+  const { cart, removeFromCart, updateQty, setFabric, totalPrice } = useCart()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -36,9 +36,9 @@ export default function CartDrawer({ open, onClose }) {
           <h2 className="font-heading font-bold text-lg flex items-center gap-2">
             <svg className="w-5 h-5 text-cmt-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
             </svg>
-            My Cart
+            My Orders
             {cart.length > 0 && (
               <span className="text-sm text-cmt-gold font-normal">
                 ({cart.length})
@@ -99,16 +99,32 @@ export default function CartDrawer({ open, onClose }) {
                     </svg>
                   </button>
                 </div>
-                {/* Fabric checkbox */}
-                <label className="mt-2 flex items-center gap-2 cursor-pointer border border-dashed border-gray-300 rounded px-3 py-2 hover:border-cmt-gold transition-colors">
-                  <input
-                    type="checkbox"
-                    checked={!!item.hasFabric}
-                    onChange={() => toggleFabric(item.id)}
-                    className="accent-cmt-gold w-4 h-4 cursor-pointer"
-                  />
-                  <span className="text-xs font-body text-gray-500">Do you have fabric?</span>
-                </label>
+                {/* Fabric Yes/No */}
+                <div className="mt-2 border border-dashed border-gray-300 rounded px-3 py-2">
+                  <p className="text-xs font-body text-gray-500 mb-2">Do you have fabric?</p>
+                  <div className="flex gap-4">
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <input
+                        type="radio"
+                        name={`fabric-${item.id}`}
+                        checked={item.hasFabric === 'yes'}
+                        onChange={() => setFabric(item.id, 'yes')}
+                        className="accent-cmt-gold cursor-pointer"
+                      />
+                      <span className="text-xs font-body text-gray-600">Yes</span>
+                    </label>
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <input
+                        type="radio"
+                        name={`fabric-${item.id}`}
+                        checked={item.hasFabric === 'no'}
+                        onChange={() => setFabric(item.id, 'no')}
+                        className="accent-cmt-gold cursor-pointer"
+                      />
+                      <span className="text-xs font-body text-gray-600">No</span>
+                    </label>
+                  </div>
+                </div>
               </div>
             ))
           )}

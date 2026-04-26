@@ -127,9 +127,6 @@ export default function AdminLogin() {
             </button>
           </form>
 
-          <p className="text-center text-xs text-gray-400 mt-6">
-            Default: <code className="bg-gray-100 px-1 py-0.5 rounded">admin</code> / <code className="bg-gray-100 px-1 py-0.5 rounded">admin123</code>
-          </p>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext'
 
 export default function CollectionPage({ title, subtitle, products, heroImage, heroFallback }) {
   const [activeTab, setActiveTab] = useState('All Item')
-  const { cart, totalCount, totalPrice, removeFromCart, toggleFabric } = useCart()
+  const { cart, totalCount, totalPrice, removeFromCart, setFabric } = useCart()
   const navigate = useNavigate()
 
   const tabs = ['All Item', ...new Set(products.map(p => p.subcategory))]
@@ -140,18 +140,32 @@ export default function CollectionPage({ title, subtitle, products, heroImage, h
                         ×
                       </button>
                     </div>
-                    {/* Fabric checkbox */}
-                    <label className="mt-2 flex items-center gap-2 cursor-pointer border border-dashed border-gray-300 px-2 py-1.5 rounded hover:border-cmt-gold transition-colors">
-                      <input
-                        type="checkbox"
-                        checked={!!item.hasFabric}
-                        onChange={() => toggleFabric(item.id)}
-                        className="accent-cmt-gold w-3.5 h-3.5 cursor-pointer"
-                      />
-                      <span className="text-[10px] font-body text-gray-500 leading-tight">
-                        Do you have fabric?
-                      </span>
-                    </label>
+                    {/* Fabric Yes/No */}
+                    <div className="mt-2 border border-dashed border-gray-300 rounded px-2 py-1.5">
+                      <p className="text-[10px] font-body text-gray-500 mb-1">Do you have fabric?</p>
+                      <div className="flex gap-3">
+                        <label className="flex items-center gap-1 cursor-pointer">
+                          <input
+                            type="radio"
+                            name={`fabric-${item.id}`}
+                            checked={item.hasFabric === 'yes'}
+                            onChange={() => setFabric(item.id, 'yes')}
+                            className="accent-cmt-gold cursor-pointer"
+                          />
+                          <span className="text-[10px] font-body text-gray-600">Yes</span>
+                        </label>
+                        <label className="flex items-center gap-1 cursor-pointer">
+                          <input
+                            type="radio"
+                            name={`fabric-${item.id}`}
+                            checked={item.hasFabric === 'no'}
+                            onChange={() => setFabric(item.id, 'no')}
+                            className="accent-cmt-gold cursor-pointer"
+                          />
+                          <span className="text-[10px] font-body text-gray-600">No</span>
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -172,7 +186,7 @@ export default function CollectionPage({ title, subtitle, products, heroImage, h
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  Book Home Visit
+                  Proceed To Book
                 </button>
               </div>
             </div>

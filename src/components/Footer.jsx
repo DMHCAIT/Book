@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-cmt-navyDark text-gray-300">
+    <footer className="bg-white text-gray-600 border-t border-gray-200">
       {/* Top CTA band */}
       <div className="bg-cmt-gold py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center gap-1">
           <p className="font-heading font-bold text-cmt-navy text-lg">
             Made for You, Designed by You
           </p>
-          <p className="text-white/80 text-sm">
+          <p className="text-cmt-navy/70 text-sm">
             Get customize your dress in Perfect fitting with quality stitching at your doorstep
           </p>
         </div>
@@ -22,12 +22,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="mb-4">
-              <p className="font-heading font-extrabold text-2xl text-white tracking-tight">
-                Vivah <span className="text-cmt-gold">Vastra</span>
-              </p>
-              <p className="text-cmt-gold/70 text-xs tracking-[0.2em] uppercase mt-0.5">
-                Book Home Visit
-              </p>
+              <img
+                src="/images/logo.png"
+                alt="Call My Tailor"
+                className="h-14 w-auto object-contain"
+              />
             </div>
 
             <p className="text-gray-400 text-sm leading-relaxed mb-5 max-w-xs">
@@ -77,8 +76,8 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded bg-white/10 hover:bg-cmt-gold flex items-center justify-center
-                             text-white/70 hover:text-white text-xs font-bold transition-all duration-200"
+                  className="w-9 h-9 rounded bg-gray-100 hover:bg-cmt-gold flex items-center justify-center
+                             text-cmt-navy/70 hover:text-white text-xs font-bold transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -88,8 +87,8 @@ export default function Footer() {
 
           {/* Information */}
           <div>
-            <h4 className="font-heading font-bold text-white text-sm uppercase tracking-widest mb-5
-                           pb-2 border-b border-white/10">
+            <h4 className="font-heading font-bold text-cmt-navy text-sm uppercase tracking-widest mb-5
+                           pb-2 border-b border-gray-200">
               Information
             </h4>
             <ul className="space-y-3">
@@ -115,8 +114,8 @@ export default function Footer() {
 
           {/* Disclaimer */}
           <div>
-            <h4 className="font-heading font-bold text-white text-sm uppercase tracking-widest mb-5
-                           pb-2 border-b border-white/10">
+            <h4 className="font-heading font-bold text-cmt-navy text-sm uppercase tracking-widest mb-5
+                           pb-2 border-b border-gray-200">
               Disclaimer
             </h4>
             <ul className="space-y-3">
@@ -142,8 +141,8 @@ export default function Footer() {
 
           {/* Explore More */}
           <div>
-            <h4 className="font-heading font-bold text-white text-sm uppercase tracking-widest mb-5
-                           pb-2 border-b border-white/10">
+            <h4 className="font-heading font-bold text-cmt-navy text-sm uppercase tracking-widest mb-5
+                           pb-2 border-b border-gray-200">
               Explore More
             </h4>
             <ul className="space-y-3">
@@ -185,7 +184,7 @@ export default function Footer() {
       </div>
 
       {/* Stats bar */}
-      <div className="border-t border-white/10 bg-cmt-navy/50">
+      <div className="border-t border-gray-200 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
@@ -204,14 +203,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4
                         flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Call My Tailor. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} Vivah Vastra. All Rights Reserved.</p>
           <div className="flex items-center gap-3">
             <span>We Accept:</span>
             {['Visa', 'MasterCard', 'UPI', 'Paytm', 'Net Banking'].map(p => (
-              <span key={p} className="border border-white/20 px-2 py-0.5 rounded text-gray-400 text-[10px] font-medium">
+              <span key={p} className="border border-gray-200 px-2 py-0.5 rounded text-gray-400 text-[10px] font-medium">
                 {p}
               </span>
             ))}

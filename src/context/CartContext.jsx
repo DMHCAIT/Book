@@ -15,9 +15,9 @@ function cartReducer(state, action) {
       }
       return [...state, { ...action.item, qty: 1, hasFabric: false }]
     }
-    case 'TOGGLE_FABRIC':
+    case 'SET_FABRIC':
       return state.map(i =>
-        i.id === action.id ? { ...i, hasFabric: !i.hasFabric } : i
+        i.id === action.id ? { ...i, hasFabric: action.value } : i
       )
     case 'REMOVE':
       return state.filter(i => i.id !== action.id)
@@ -54,13 +54,13 @@ export function CartProvider({ children }) {
   const removeFromCart = id   => dispatch({ type: 'REMOVE', id })
   const updateQty      = (id, qty) => dispatch({ type: 'UPDATE_QTY', id, qty })
   const clearCart      = () => dispatch({ type: 'CLEAR' })
-  const toggleFabric   = id  => dispatch({ type: 'TOGGLE_FABRIC', id })
+  const setFabric      = (id, value) => dispatch({ type: 'SET_FABRIC', id, value })
 
   const totalCount  = cart.reduce((s, i) => s + i.qty, 0)
   const totalPrice  = cart.reduce((s, i) => s + i.price * i.qty, 0)
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQty, clearCart, toggleFabric, totalCount, totalPrice }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQty, clearCart, setFabric, totalCount, totalPrice }}>
       {children}
     </CartContext.Provider>
   )
