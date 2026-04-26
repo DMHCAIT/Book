@@ -28,12 +28,12 @@ export default function ProductCard({ product }) {
   return (
     <div className="pcard group">
       {/* Image — full garment visible, white bg */}
-      <div className="relative bg-[#f7f5f2] border-b border-gray-100 overflow-hidden h-[160px] sm:h-[220px] md:h-[260px] lg:h-[320px]">
+      <div className="relative border-b border-gray-100 overflow-hidden aspect-[3/4] w-full">
         <img
           src={product.image}
           alt={product.title}
           onError={e => { if (product.fallback) e.target.src = product.fallback }}
-          className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
           loading="lazy"
         />
         {product.badge && (
@@ -52,12 +52,12 @@ export default function ProductCard({ product }) {
 
         <div className="space-y-[2px] mb-2 sm:mb-3 flex-1">
           <div className="flex items-center justify-between text-[10px] sm:text-xs lg:text-sm">
-            <span className="text-gray-400">Stitching :-</span>
+            <span className="text-gray-400">Stitching Price</span>
             <span className="font-body font-normal text-gray-400">₹{product.stitching.toLocaleString()}/-</span>
           </div>
           {product.fabricFrom > 0 && (
             <div className="flex items-center justify-between text-[10px] sm:text-xs lg:text-sm">
-              <span className="text-gray-400">Fabric :-</span>
+              <span className="text-gray-400">Fabric Starts at</span>
               <span className="font-body font-normal text-gray-400">₹{product.fabricFrom.toLocaleString()}/-</span>
             </div>
           )}
