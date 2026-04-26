@@ -3,28 +3,28 @@ import { useNavigate } from 'react-router-dom'
 const categories = [
   {
     id: 'mens',
-    label: "MEN'S",
-    desc: 'Suits · Sherwanis · Kurta Sets',
+    label: "Men's Tailoring",
+    desc: 'Coat Pant, Kurta Pajama, Pant Shirt and all formal and Party Wear',
     path: '/mens',
-    image: '/images/mens/sherwani.jpg',
+    image: '/images/home-mens.jpg',
     fallback: '/images/mens/sherwani.jpg',
     color: 'border-cmt-navy',
   },
   {
     id: 'womens',
-    label: "WOMEN'S",
-    desc: 'Sarees · Lehengas · Anarkalis',
+    label: "Women's Tailoring",
+    desc: 'Salwar Suits, Gowns, Anarkali, Lehengas, Western & Traditional Wear',
     path: '/womens',
-    image: '/images/womens/lehenga-choli.jpg',
+    image: '/images/home-womens.jpg',
     fallback: '/images/womens/lehenga-choli.jpg',
     color: 'border-pink-600',
   },
   {
     id: 'alteration',
-    label: 'ALTERATION',
-    desc: 'Hemming · Fitting · Repairs',
+    label: 'Alteration & Repair',
+    desc: 'Length adjustments, waist and shoulder fitting, sleeve corrections, and all kind of alterations.',
     path: '/alteration',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80',
+    image: '/images/home-alteration.jpg',
     fallback: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80',
     color: 'border-emerald-600',
   },
@@ -114,8 +114,8 @@ export default function CategoryButtons() {
       <section id="select-category" className="py-20 bg-[#faf8f5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="sec-label mb-3">Browse Collection</p>
-            <h2 className="font-heading font-bold text-cmt-navy text-3xl md:text-4xl tracking-tight">Our Collections</h2>
+            <h2 className="font-heading font-bold text-cmt-navy text-3xl md:text-4xl tracking-tight">What are you <span className="text-orange-500">looking for?</span></h2>
+            <p className="text-gray-500 text-base mt-3">Choose the tailoring service that suits your style and needs.</p>
             <div className="flex items-center justify-center gap-3 mt-4">
               <span className="block w-12 h-px bg-cmt-gold/40" />
               <span className="text-cmt-gold text-xs">✦</span>
@@ -123,7 +123,7 @@ export default function CategoryButtons() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {categories.map(cat => (
               <button
                 key={cat.id}
@@ -131,12 +131,12 @@ export default function CategoryButtons() {
                 className="group relative overflow-hidden text-left cursor-pointer"
               >
                 {/* Image */}
-                <div className="aspect-[3/4] overflow-hidden">
+                <div className="h-[280px] sm:h-[320px] overflow-hidden">
                   <img
                     src={cat.image}
                     alt={cat.label}
                     onError={e => { e.target.src = cat.fallback }}
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     style={{ transitionTimingFunction: 'cubic-bezier(.25,.46,.45,.94)' }}
                   />
                 </div>
@@ -151,10 +151,13 @@ export default function CategoryButtons() {
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="font-heading font-extrabold text-white text-2xl tracking-wide leading-none mb-1">{cat.label}</p>
                   <p className="text-white/60 text-xs tracking-widest mb-4">{cat.desc}</p>
-                  <div className="flex items-center gap-2">
-                    <span className="block w-5 h-px bg-cmt-gold" />
-                    <span className="text-cmt-gold text-xs font-heading font-semibold uppercase tracking-widest
-                                     group-hover:text-cmt-goldLight transition-colors">Explore</span>
+                  <div className="inline-flex items-center gap-2 bg-cmt-gold hover:bg-cmt-goldLight
+                                  text-white text-xs font-heading font-bold uppercase tracking-widest
+                                  px-5 py-2 transition-colors duration-200">
+                    Explore
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                    </svg>
                   </div>
                 </div>
               </button>

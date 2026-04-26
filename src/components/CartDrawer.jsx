@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 
 export default function CartDrawer({ open, onClose }) {
-  const { cart, removeFromCart, updateQty, totalPrice } = useCart()
+  const { cart, removeFromCart, updateQty, toggleFabric, totalPrice } = useCart()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -65,38 +65,50 @@ export default function CartDrawer({ open, onClose }) {
             </div>
           ) : (
             cart.map(item => (
-              <div key={item.id} className="flex gap-3 bg-gray-50 rounded-lg p-3 border border-gray-100">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
-                />
-                <div className="flex-1 min-w-0">
-                  <p className="font-heading font-semibold text-sm text-gray-800 truncate">{item.title}</p>
-                  <p className="text-cmt-gold text-sm font-bold mt-0.5">₹{item.price.toLocaleString()}</p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <button
-                      onClick={() => updateQty(item.id, item.qty - 1)}
-                      className="w-6 h-6 rounded border border-gray-300 flex items-center justify-center
-                                 hover:bg-cmt-navy hover:text-white hover:border-cmt-navy text-sm transition-colors"
-                    >−</button>
-                    <span className="text-sm font-semibold w-5 text-center">{item.qty}</span>
-                    <button
-                      onClick={() => updateQty(item.id, item.qty + 1)}
-                      className="w-6 h-6 rounded border border-gray-300 flex items-center justify-center
-                                 hover:bg-cmt-navy hover:text-white hover:border-cmt-navy text-sm transition-colors"
-                    >+</button>
+              <div key={item.id} className="bg-gray-50 rounded-lg border border-gray-100 p-3">
+                <div className="flex gap-3">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <p className="font-heading font-semibold text-sm text-gray-800 truncate">{item.title}</p>
+                    <p className="text-cmt-gold text-sm font-bold mt-0.5">₹{item.price.toLocaleString()}</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <button
+                        onClick={() => updateQty(item.id, item.qty - 1)}
+                        className="w-6 h-6 rounded border border-gray-300 flex items-center justify-center
+                                   hover:bg-cmt-navy hover:text-white hover:border-cmt-navy text-sm transition-colors"
+                      >−</button>
+                      <span className="text-sm font-semibold w-5 text-center">{item.qty}</span>
+                      <button
+                        onClick={() => updateQty(item.id, item.qty + 1)}
+                        className="w-6 h-6 rounded border border-gray-300 flex items-center justify-center
+                                   hover:bg-cmt-navy hover:text-white hover:border-cmt-navy text-sm transition-colors"
+                      >+</button>
+                    </div>
                   </div>
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="p-1 text-gray-400 hover:text-red-500 transition-colors self-start"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </button>
                 </div>
-                <button
-                  onClick={() => removeFromCart(item.id)}
-                  className="p-1 text-gray-400 hover:text-red-500 transition-colors self-start"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                  </svg>
-                </button>
+                {/* Fabric checkbox */}
+                <label className="mt-2 flex items-center gap-2 cursor-pointer border border-dashed border-gray-300 rounded px-3 py-2 hover:border-cmt-gold transition-colors">
+                  <input
+                    type="checkbox"
+                    checked={!!item.hasFabric}
+                    onChange={() => toggleFabric(item.id)}
+                    className="accent-cmt-gold w-4 h-4 cursor-pointer"
+                  />
+                  <span className="text-xs font-body text-gray-500">Do you have fabric?</span>
+                </label>
               </div>
             ))
           )}
@@ -111,6 +123,7 @@ export default function CartDrawer({ open, onClose }) {
                 ₹{totalPrice.toLocaleString()}
               </span>
             </div>
+            <p className="text-[11px] text-gray-400 text-left">( Only For Stitching )</p>
             <button onClick={handleProceed} className="w-full btn-cmt py-3 text-base">
               Proceed to Book
             </button>

@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext'
 
 export default function CollectionPage({ title, subtitle, products, heroImage, heroFallback }) {
   const [activeTab, setActiveTab] = useState('All Item')
-  const { cart, totalCount, totalPrice, removeFromCart } = useCart()
+  const { cart, totalCount, totalPrice, removeFromCart, toggleFabric } = useCart()
   const navigate = useNavigate()
 
   const tabs = ['All Item', ...new Set(products.map(p => p.subcategory))]
@@ -60,7 +60,7 @@ export default function CollectionPage({ title, subtitle, products, heroImage, h
             </div>
 
             {/* Tab bar */}
-            <div className="flex flex-wrap gap-2 mb-8 pb-4 border-b border-gray-200">
+            <div className="sticky top-[70px] z-30 bg-white flex flex-wrap gap-2 mb-8 py-3 border-b border-gray-200 shadow-sm">
               {tabs.map(tab => (
                 <button
                   key={tab}
@@ -114,30 +114,44 @@ export default function CollectionPage({ title, subtitle, products, heroImage, h
                 style={{ scrollbarWidth: 'none' }}
               >
                 {cart.map(item => (
-                  <div key={item.id} className="flex items-center gap-2 bg-gray-50 border border-gray-100 p-2">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-11 h-14 object-contain bg-[#f7f5f2] flex-shrink-0"
-                    />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[11px] font-heading font-semibold text-cmt-navy leading-tight line-clamp-2">
-                        {item.title}
-                      </p>
-                      <p className="text-cmt-gold text-[11px] font-body font-bold mt-0.5">
-                        ₹{item.price.toLocaleString()}/-
-                      </p>
-                      {item.qty > 1 && (
-                        <p className="text-gray-400 text-[10px]">Qty: {item.qty}</p>
-                      )}
+                  <div key={item.id} className="bg-gray-50 border border-gray-100 p-2">
+                    <div className="flex items-center gap-2">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-11 h-14 object-contain bg-[#f7f5f2] flex-shrink-0"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[11px] font-heading font-semibold text-cmt-navy leading-tight line-clamp-2">
+                          {item.title}
+                        </p>
+                        <p className="text-cmt-gold text-[11px] font-body font-bold mt-0.5">
+                          ₹{item.price.toLocaleString()}/-
+                        </p>
+                        {item.qty > 1 && (
+                          <p className="text-gray-400 text-[10px]">Qty: {item.qty}</p>
+                        )}
+                      </div>
+                      <button
+                        onClick={() => removeFromCart(item.id)}
+                        className="text-gray-300 hover:text-red-400 text-xl leading-none flex-shrink-0 transition-colors"
+                        aria-label="Remove"
+                      >
+                        ×
+                      </button>
                     </div>
-                    <button
-                      onClick={() => removeFromCart(item.id)}
-                      className="text-gray-300 hover:text-red-400 text-xl leading-none flex-shrink-0 transition-colors"
-                      aria-label="Remove"
-                    >
-                      ×
-                    </button>
+                    {/* Fabric checkbox */}
+                    <label className="mt-2 flex items-center gap-2 cursor-pointer border border-dashed border-gray-300 px-2 py-1.5 rounded hover:border-cmt-gold transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={!!item.hasFabric}
+                        onChange={() => toggleFabric(item.id)}
+                        className="accent-cmt-gold w-3.5 h-3.5 cursor-pointer"
+                      />
+                      <span className="text-[10px] font-body text-gray-500 leading-tight">
+                        Do you have fabric?
+                      </span>
+                    </label>
                   </div>
                 ))}
               </div>

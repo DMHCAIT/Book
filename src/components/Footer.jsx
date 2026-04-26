@@ -5,23 +5,13 @@ export default function Footer() {
     <footer className="bg-cmt-navyDark text-gray-300">
       {/* Top CTA band */}
       <div className="bg-cmt-gold py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
-                        flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div>
-            <p className="font-heading font-bold text-white text-lg">
-              Made for You, Designed by You
-            </p>
-            <p className="text-white/80 text-sm">
-              Get customize your dress in Perfect fitting with quality stitching at your doorstep
-            </p>
-          </div>
-          <Link
-            to="/booking"
-            className="flex-shrink-0 bg-cmt-navy text-white font-heading font-bold px-8 py-3
-                       rounded hover:bg-cmt-navyMid transition-colors uppercase tracking-wide text-sm whitespace-nowrap"
-          >
-            BOOK VISIT & ORDER NOW
-          </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center gap-1">
+          <p className="font-heading font-bold text-cmt-navy text-lg">
+            Made for You, Designed by You
+          </p>
+          <p className="text-white/80 text-sm">
+            Get customize your dress in Perfect fitting with quality stitching at your doorstep
+          </p>
         </div>
       </div>
 
