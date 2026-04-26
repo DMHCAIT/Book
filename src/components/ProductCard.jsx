@@ -10,26 +10,30 @@ const badgeColors = {
 }
 
 export default function ProductCard({ product }) {
-  const { addToCart, cart } = useCart()
+  const { addToCart, removeFromCart, cart } = useCart()
   const [added, setAdded]   = useState(false)
 
   const inCart = cart.some(i => i.id === product.id)
 
   const handleSelect = () => {
-    addToCart(product)
-    setAdded(true)
-    setTimeout(() => setAdded(false), 1500)
+    if (inCart) {
+      removeFromCart(product.id)
+    } else {
+      addToCart(product)
+      setAdded(true)
+      setTimeout(() => setAdded(false), 1500)
+    }
   }
 
   return (
     <div className="pcard group">
       {/* Image — full garment visible, white bg */}
-      <div className="relative bg-[#f7f5f2] border-b border-gray-100" style={{ aspectRatio: '3/4' }}>
+      <div className="relative bg-[#f7f5f2] border-b border-gray-100 overflow-hidden h-[320px]">
         <img
           src={product.image}
           alt={product.title}
           onError={e => { if (product.fallback) e.target.src = product.fallback }}
-          className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
           loading="lazy"
         />
         {product.badge && (
@@ -42,31 +46,30 @@ export default function ProductCard({ product }) {
 
       {/* Content */}
       <div className="p-3 flex flex-col flex-1">
-        <h3 className="font-heading font-semibold text-cmt-navy text-sm leading-tight mb-2 min-h-[2.2rem]">
+        <h3 className="font-heading font-bold text-cmt-navy text-lg leading-tight mb-2">
           {product.title}
         </h3>
 
-        <div className="space-y-0.5 mb-3 flex-1">
-          <div className="flex items-center justify-between text-xs">
-            <span className="text-gray-400">Stitching</span>
-            <span className="font-body font-bold text-cmt-navy">₹{product.stitching.toLocaleString()}/-</span>
+        <div className="space-y-[2px] mb-3 flex-1">
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-gray-400">Stitching Price :-</span>
+            <span className="font-body font-normal text-gray-400">₹{product.stitching.toLocaleString()}/-</span>
           </div>
           {product.fabricFrom > 0 && (
-            <div className="flex items-center justify-between text-xs">
-              <span className="text-gray-400">Fabric from</span>
-              <span className="font-body font-semibold text-gray-500">₹{product.fabricFrom.toLocaleString()}/-</span>
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-gray-400">Fabric Starts at :-</span>
+              <span className="font-body font-normal text-gray-400">₹{product.fabricFrom.toLocaleString()}/-</span>
             </div>
           )}
         </div>
 
         <button
           onClick={handleSelect}
-          disabled={inCart}
-          className={`w-full py-2 font-body font-semibold text-[11px] uppercase tracking-widest
+          className={`w-full py-2 font-body font-semibold text-xs uppercase tracking-widest
             transition-all duration-200 active:scale-95
             ${
               inCart
-                ? 'bg-cmt-gold/10 text-cmt-gold border border-cmt-gold/40 cursor-default'
+                ? 'bg-cmt-gold/10 text-cmt-gold border border-cmt-gold/40 hover:bg-red-50 hover:text-red-600 hover:border-red-300'
                 : added
                   ? 'bg-cmt-gold text-white'
                   : 'bg-[#0d1525] text-white hover:bg-cmt-gold'

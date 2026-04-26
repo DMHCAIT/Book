@@ -3,6 +3,7 @@ import { CartProvider } from './context/CartContext'
 import { AdminProvider } from './context/AdminContext'
 import Header        from './components/Header'
 import Footer        from './components/Footer'
+import FloatingCart  from './components/FloatingCart'
 import AdminLayout   from './components/admin/AdminLayout'
 import HomePage      from './pages/HomePage'
 import MensPage      from './pages/MensPage'
@@ -45,6 +46,7 @@ export default function App() {
                   </Routes>
                 </div>
                 <Footer />
+                <FloatingCart />
               </div>
             </CartProvider>
           } />

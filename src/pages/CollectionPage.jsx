@@ -45,8 +45,8 @@ export default function CollectionPage({ title, subtitle, products, heroImage, h
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className={hasItems ? 'lg:flex lg:gap-6 lg:items-start' : ''}>
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className={hasItems ? 'lg:flex lg:gap-12 lg:items-start' : ''}>
 
           {/* ── Left: product area ── */}
           <div className="flex-1 min-w-0">
@@ -73,10 +73,10 @@ export default function CollectionPage({ title, subtitle, products, heroImage, h
             </div>
 
             {/* Product grid — shrinks when side panel is open */}
-            <div className={`grid gap-4 ${
+            <div className={`grid gap-3 ${
               hasItems
-                ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4'
-                : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'
+                ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6'
+                : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'
             }`}>
               {visible.map(product => (
                 <ProductCard key={product.id} product={product} />

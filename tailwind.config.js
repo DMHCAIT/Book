@@ -22,10 +22,10 @@ export default {
         }
       },
       fontFamily: {
-        heading: ['Playfair Display', 'Georgia', 'serif'],
-        subheading: ['Cormorant Garamond', 'Georgia', 'serif'],
-        body:    ['Poppins', 'system-ui', 'sans-serif'],
-        sans:    ['Poppins', 'system-ui', 'sans-serif'],
+        heading: ['Roboto', 'system-ui', 'sans-serif'],
+        subheading: ['Roboto', 'system-ui', 'sans-serif'],
+        body:    ['Roboto', 'system-ui', 'sans-serif'],
+        sans:    ['Roboto', 'system-ui', 'sans-serif'],
       },
     },
   },
